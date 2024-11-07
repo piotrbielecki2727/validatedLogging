@@ -10,7 +10,6 @@ import { login } from "../../store/authSlice";
 import { FormData } from "./schema";
 import { LoginButton } from "../ui";
 import { BiLogIn } from "react-icons/bi";
-import { toast } from "react-toastify";
 import { showSuccessToast } from "../../utils/toast";
 
 const Login = () => {

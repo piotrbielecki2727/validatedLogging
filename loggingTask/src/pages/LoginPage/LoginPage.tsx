@@ -1,8 +1,7 @@
 import Login from "../../components/Login";
 import * as S from "./styled";
-type Props = {};
 
-const LoginPage = (props: Props) => {
+const LoginPage = () => {
   return (
     <S.PageContainer>
       <S.TitleContainer>
