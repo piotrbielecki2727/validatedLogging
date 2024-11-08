@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
-import styled from 'styled-components';
+import { ReactNode } from "react";
+import styled from "styled-components";
 
-type HeaderProps<T> = {
+type HeaderProps<> = {
   children?: ReactNode;
 };
 
@@ -14,7 +14,7 @@ const StyledHeader = styled.div`
   justify-items: center;
 `;
 
-const Header = <T,>({ children }: HeaderProps<T>) => {
+const Header = ({ children }: HeaderProps) => {
   return <StyledHeader>{children}</StyledHeader>;
 };
 

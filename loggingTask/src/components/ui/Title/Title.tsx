@@ -1,5 +1,4 @@
 import { FC } from "react";
-import ChangingTheme from "../ChangingTheme";
 import * as S from "./styled";
 
 type TitleProps = {

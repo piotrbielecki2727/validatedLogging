@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 export type Action<T> = {
   key: string;
@@ -7,7 +7,7 @@ export type Action<T> = {
   onClick: (row: T) => void;
 };
 
-export type Column<T> = {
+export type Column = {
   accessorKey: string;
   header: string;
   size: number;

@@ -7,7 +7,7 @@ const ChangingTheme = () => {
   const { theme, toggleTheme } = useTheme();
   return (
     <OutlineButton onClick={toggleTheme}>
-      <IconComponent icon={theme === "light" ? RiSunFill : RiMoonFill} />
+      <IconComponent icon={theme.mode === "light" ? RiSunFill : RiMoonFill} />
     </OutlineButton>
   );
 };
