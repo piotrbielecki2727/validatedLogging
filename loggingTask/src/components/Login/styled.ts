@@ -25,9 +25,9 @@ const InputLabel = styled.label`
 const InputWithIcon = styled.div`
   display: flex;
   flex-direction: row;
-  border: 1px solid #d8d9da;
+  border: 1px solid ${({theme}) => theme.colors.borderColor};
   border-radius: 5px;
-  background-color: white;
+  background: ${({ theme }) => theme.colors.background.secondary};
 `;
 
 const Icon = styled.div`
@@ -41,6 +41,8 @@ const Icon = styled.div`
 
 const Input = styled.input`
   padding: 10px;
+  background: ${({ theme }) => theme.colors.background.secondary};
+  color: ${({ theme }) => theme.text};
   border: none;
   display: flex;
   font-size: smaller;

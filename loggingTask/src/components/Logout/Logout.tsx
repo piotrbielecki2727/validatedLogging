@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux";
-import { LogoutButton } from "../ui";
-import { logout } from "../../store/authSlice";
+import { logout } from "../../lib/store/authSlice";
 import { useNavigate } from "react-router-dom";
 import { TbLogout2 } from "react-icons/tb";
-import { showSuccessToast } from "../../utils/toast";
+import { showSuccessToast } from "../../lib/utils/toast";
+import IconComponent from "../ui/IconComponent/IconComponent";
+import { SecondaryBgButton } from "../ui/Button/Button";
 const Logout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,10 +15,10 @@ const Logout = () => {
   };
 
   return (
-    <LogoutButton onClick={handleLogout}>
-      <TbLogout2 size={25} />
+    <SecondaryBgButton onClick={handleLogout}>
+      <IconComponent icon={TbLogout2} />
       Logout
-    </LogoutButton>
+    </SecondaryBgButton>
   );
 };
 

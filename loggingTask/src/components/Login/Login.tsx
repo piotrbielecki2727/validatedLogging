@@ -6,11 +6,11 @@ import { schema } from "./schema";
 import { CREDENTIALS } from "./constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../store/authSlice";
+import { login } from "../../lib/store/authSlice";
 import { FormData } from "./schema";
-import { LoginButton } from "../ui";
 import { BiLogIn } from "react-icons/bi";
-import { showSuccessToast } from "../../utils/toast";
+import { showSuccessToast } from "../../lib/utils/toast";
+import { BlueButton } from "../ui/Button/Button";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -66,10 +66,10 @@ const Login = () => {
           {errors.password && <S.Error>{errors.password.message}</S.Error>}
         </S.FormElement>
         {errors.root && <S.Error>{errors.root.message}</S.Error>}
-        <LoginButton type="submit">
+        <BlueButton type="submit">
           <BiLogIn size={25} />
           Login
-        </LoginButton>
+        </BlueButton>
       </S.Form>
       <S.ForgotPassword>Forgot password?</S.ForgotPassword>
     </S.FormContainer>
