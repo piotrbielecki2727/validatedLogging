@@ -26,9 +26,9 @@ const Content = <T,>({ table, columnDefs, isLoading }: ContentProps<T>) => {
 
   const emptyResults = () => (
     <S.StyledTableBodyRow>
-      <S.StyledCell colSpan={columnDefs.length}>
+      <S.CellForEmptyState colSpan={columnDefs.length}>
         <S.StyledEmptyState title="Empty results..." />
-      </S.StyledCell>
+      </S.CellForEmptyState>
     </S.StyledTableBodyRow>
   );
 

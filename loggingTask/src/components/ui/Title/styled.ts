@@ -3,13 +3,13 @@ import styled from "styled-components";
 const Container = styled.div`
   padding: 0.25rem 0;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;
 
 const TitleWrapper = styled.div`
   display: flex;
+  gap: 6px;
   flex-direction: column;
 `;
 
@@ -24,11 +24,10 @@ const TitleText = styled.span`
 
 const SubtitleText = styled.span`
   color: #9ca3af;
-  margin-top: 0.25rem;
 `;
 
 const StyledSeparator = styled.hr`
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
   background-color: ${({ theme }) => theme.colors.secondary};
 `;
 

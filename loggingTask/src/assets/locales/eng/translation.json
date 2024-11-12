@@ -1,0 +1,31 @@
+{
+  "logging": "Login",
+  "loggingSubtitle": "Sign in to your account",
+  "yourEmail": "E-mail",
+  "emailPlaceholder": "Your e-mail...",
+  "yourPassword": "Password",
+  "passwordPlaceholder": "Your password...",
+  "loginButtonText": "Login",
+  "forgotPassword": "Forgot your password?",
+  "successLogin": "Logged in successfully!",
+  "successLogout": "Logged out successfully!",
+  "wrongCredentials": "E-mail or password is incorrect!",
+  "invalidEmail": "Invalid e-mail address",
+  "invalidPassword": "Password must be at least 8 characters long",
+  "usersTitle": "Users",
+  "usersSubtitle": "Manage users",
+  "search": "Search",
+  "columns": {
+    "name": "Name",
+    "username": "Username",
+    "email": "Email",
+    "phone": "Phone no."
+  },
+  "filters": {
+    "name": "Filter by name",
+    "username": "Filter by username",
+    "email": "Filter by email",
+    "phone": "Filter by phone"
+  },
+  "logout": "Logout"
+}

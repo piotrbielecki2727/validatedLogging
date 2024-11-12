@@ -2,7 +2,7 @@ import { MdLock, MdEmail } from "react-icons/md";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as S from "./styled";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { schema } from "./schema";
+import { createSchema } from "./schema";
 import { CREDENTIALS } from "./constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -11,14 +11,21 @@ import { FormData } from "./schema";
 import { BiLogIn } from "react-icons/bi";
 import { showSuccessToast } from "../../lib/utils/toast";
 import { BlueButton } from "../ui/Button/Button";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import i18n from "../../i18n";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const schema = createSchema();
+
   const {
     register,
     handleSubmit,
     setError,
+    trigger,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
@@ -30,36 +37,49 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<FormData> = ({ email, password }) => {
     if (password !== CREDENTIALS.PASSWORD || email !== CREDENTIALS.EMAIL) {
-      setError("root", { message: "Email or password is incorrect!" });
+      setError("root", { message: t("wrongCredentials") });
       return;
     }
     dispatch(login());
-    showSuccessToast("Logged in successfully!");
+    showSuccessToast(t("successLogin"));
     navigate("/users", { replace: true });
   };
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      trigger();
+    };
+    i18n.on("languageChanged", handleLanguageChange);
+    return () => {
+      i18n.off("languageChanged", handleLanguageChange);
+    };
+  }, [trigger]);
 
   return (
     <S.FormContainer>
       <S.Form onSubmit={handleSubmit(onSubmit)}>
         <S.FormElement>
-          <S.InputLabel>YOUR E-MAIL</S.InputLabel>
+          <S.InputLabel>{t("yourEmail")}</S.InputLabel>
           <S.InputWithIcon>
             <S.Icon>
               <MdEmail size={20} />
             </S.Icon>
-            <S.Input placeholder="Your e-mail" {...register("email")} />
+            <S.Input
+              placeholder={t("emailPlaceholder")}
+              {...register("email")}
+            />
           </S.InputWithIcon>
           {errors.email && <S.Error>{errors.email.message}</S.Error>}
         </S.FormElement>
         <S.FormElement>
-          <S.InputLabel>PASSWORD</S.InputLabel>
+          <S.InputLabel>{t("yourPassword")}</S.InputLabel>
           <S.InputWithIcon>
             <S.Icon>
               <MdLock size={20} />
             </S.Icon>
             <S.Input
               type="password"
-              placeholder="Password"
+              placeholder={t("passwordPlaceholder")}
               {...register("password")}
             />
           </S.InputWithIcon>
@@ -68,10 +88,10 @@ const Login = () => {
         {errors.root && <S.Error>{errors.root.message}</S.Error>}
         <BlueButton type="submit">
           <BiLogIn size={25} />
-          Login
+          {t("loginButtonText")}
         </BlueButton>
       </S.Form>
-      <S.ForgotPassword>Forgot password?</S.ForgotPassword>
+      <S.ForgotPassword>{t("forgotPassword")}</S.ForgotPassword>
     </S.FormContainer>
   );
 };

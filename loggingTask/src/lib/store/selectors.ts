@@ -1,10 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-export const selectIsLoggedIn = createSelector(
-  (state: RootState) => state.auth.isLoggedIn,
-  (isLoggedIn) => isLoggedIn
-);
+export const selectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 
 export const selectTheme = createSelector(
   (state: RootState) => state.theme.mode,

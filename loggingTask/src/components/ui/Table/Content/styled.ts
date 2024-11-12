@@ -79,8 +79,14 @@ const StyledTableBodyRow = styled.tr`
 
 const StyledCell = styled.td`
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
-  padding: 0.75rem;
+  padding: 0.55rem;
   color: ${({ theme }) => theme.text};
+`;
+
+const CellForEmptyState = styled(StyledCell)`
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.background.secondary};
+  }
 `;
 
 export {
@@ -96,4 +102,5 @@ export {
   StyledTableBodyRow,
   StyledTableHeader,
   StyledTableRow,
+  CellForEmptyState,
 };

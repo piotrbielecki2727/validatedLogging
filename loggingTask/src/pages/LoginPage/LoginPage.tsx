@@ -1,13 +1,16 @@
+import { useTranslation } from "react-i18next";
 import Login from "../../components/Login";
 import * as S from "./styled";
 
 const LoginPage = () => {
+  const { t } = useTranslation();
+
   return (
     <S.PageContainer>
       <S.TitleContainer>
         <S.Title>
-          <S.LoginText>LOGIN</S.LoginText>
-          <S.Subtitle>SIGN IN TO YOUR ACCOUNT</S.Subtitle>
+          <S.LoginText>{t("logging")}</S.LoginText>
+          <S.Subtitle>{t("loggingSubtitle")}</S.Subtitle>
         </S.Title>
       </S.TitleContainer>
       <Login />

@@ -24,11 +24,7 @@ const DropdownButton = styled(Button)`
   }
 `;
 
-type DropdownContentProps = {
-  show: boolean;
-};
-
-const DropdownContent = styled.div<DropdownContentProps>`
+const DropdownContent = styled.div<{ $show: boolean }>`
   top: 100%;
   position: absolute;
   width: 80px;
@@ -36,7 +32,7 @@ const DropdownContent = styled.div<DropdownContentProps>`
   background-color: ${({ theme }) => theme.body};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  display: ${(props) => (props.show ? "block" : "none")};
+  display: ${({ $show }) => ($show ? "block" : "none")};
 `;
 
 const DropdownItem = styled.a`
@@ -44,6 +40,7 @@ const DropdownItem = styled.a`
   padding: 8px 12px;
   text-decoration: none;
   display: block;
+  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.colors.background.secondary};
   }

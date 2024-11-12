@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import SearchBar from './SearchBar';
+import styled from "styled-components";
+import SearchBar from "./SearchBar";
 
 const FilterSectionContainer = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const Search = styled.div`
   flex-direction: row;
   justify-content: space-between;
   justify-items: end;
-  margin-top: 2px;
+  padding: 0px 8px 8px 0px;
 `;
 
 const GridDiv = styled.div`
@@ -54,4 +54,11 @@ const ButtonDiv = styled.div`
   width: 100%;
 `;
 
-export { FilterSectionContainer, GridDiv, Search, SearchBarContainer, StyledSearchBar, ButtonDiv };
+export {
+  FilterSectionContainer,
+  GridDiv,
+  Search,
+  SearchBarContainer,
+  StyledSearchBar,
+  ButtonDiv,
+};

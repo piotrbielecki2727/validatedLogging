@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-type HeaderProps<> = {
+type HeaderProps = {
   children?: ReactNode;
 };
 

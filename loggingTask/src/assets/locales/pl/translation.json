@@ -1,0 +1,32 @@
+{
+  "logging": "Logowanie",
+  "loggingSubtitle": "Zaloguj się na swoje konto",
+  "yourEmail": "E-mail",
+  "emailPlaceholder": "Twój e-mail...",
+  "yourPassword": "Hasło",
+  "passwordPlaceholder": "Twoje hasło...",
+  "loginButtonText": "Zaloguj się",
+  "forgotPassword": "Zapomniałeś hasła?",
+  "successLogin": "Zalogowano pomyślnie!",
+  "successLogout": " Wylogowano pomyślnie!",
+  "wrongCredentials": "E-mail lub hasło jest niepoprawne",
+  "invalidEmail": "Niepoprawny adres e-mail",
+  "invalidPassword": "Hasło musi mieć conajmniej 8 znaków",
+  "usersTitle": "Użytkownicy",
+  "usersSubtitle": "Zarządzaj użytkownikami",
+  "search": "Wyszukaj",
+  "resetAllFilters": "Zresetuj filtry",
+  "filters": {
+    "name": "Filtruj po imieniu",
+    "username": "Filtruj po nazwie użytkownika",
+    "email": "Filtruj po e-mailu",
+    "phone": "Filtruj po numerze telefonu"
+  },
+  "columns": {
+    "name": "Imię",
+    "username": "Nazwa użytkownika",
+    "email": "Email",
+    "phone": "Numer telefonu"
+  },
+  "logout": "Wyloguj"
+}
