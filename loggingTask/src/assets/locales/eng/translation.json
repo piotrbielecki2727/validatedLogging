@@ -15,6 +15,7 @@
   "usersTitle": "Users",
   "usersSubtitle": "Manage users",
   "search": "Search",
+  "resetAllFilters": "Reset filters",
   "columns": {
     "name": "Name",
     "username": "Username",
@@ -27,5 +28,6 @@
     "email": "Filter by email",
     "phone": "Filter by phone"
   },
-  "logout": "Logout"
+  "logout": "Logout",
+  "loading": "Loading..."
 }

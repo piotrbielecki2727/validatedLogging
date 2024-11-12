@@ -28,5 +28,6 @@
     "email": "Email",
     "phone": "Numer telefonu"
   },
-  "logout": "Wyloguj"
+  "logout": "Wyloguj",
+  "loading": "Ładowanie..."
 }

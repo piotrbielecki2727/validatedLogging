@@ -6,6 +6,7 @@ import {
   Table as TanStackTable,
 } from "@tanstack/react-table";
 import * as S from "./styled";
+import { t } from "i18next";
 
 type ContentProps<T> = {
   table: TanStackTable<T>;
@@ -26,19 +27,19 @@ const Content = <T,>({ table, columnDefs, isLoading }: ContentProps<T>) => {
 
   const emptyResults = () => (
     <S.StyledTableBodyRow>
-      <S.CellForEmptyState colSpan={columnDefs.length}>
+      <S.CellForLoaderAndEmptyState colSpan={columnDefs.length}>
         <S.StyledEmptyState title="Empty results..." />
-      </S.CellForEmptyState>
+      </S.CellForLoaderAndEmptyState>
     </S.StyledTableBodyRow>
   );
 
   const renderLoader = () => (
     <tr>
-      <S.StyledLoaderCell colSpan={columnDefs.length}>
+      <S.CellForLoaderAndEmptyState colSpan={columnDefs.length}>
         <S.StyledLoaderDiv>
-          <S.StyledLoader /> Loading...
+          <S.StyledLoader /> {t("loading")}
         </S.StyledLoaderDiv>
-      </S.StyledLoaderCell>
+      </S.CellForLoaderAndEmptyState>
     </tr>
   );
 

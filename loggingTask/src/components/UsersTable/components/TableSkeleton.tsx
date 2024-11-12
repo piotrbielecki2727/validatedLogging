@@ -49,7 +49,7 @@ const StyledSkeleton = styled.div<{
   border-radius: ${(props) => (props.rounded ? "0.375rem" : "0")};
 `;
 
-export default function Component() {
+const TableSkeleton = () => {
   return (
     <Container>
       <Table>
@@ -96,4 +96,6 @@ export default function Component() {
       </Table>
     </Container>
   );
-}
+};
+
+export default TableSkeleton;

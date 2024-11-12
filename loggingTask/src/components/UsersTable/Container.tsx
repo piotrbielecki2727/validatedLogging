@@ -5,6 +5,7 @@ import { User } from "./types";
 
 const Container = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -14,11 +15,12 @@ const Container = () => {
       } catch (error) {
         console.error("Error fetching users:", error);
       }
+      setIsLoading(false);
     };
 
     fetchUsers();
   }, []);
-  return <UsersTable users={users} />;
+  return <UsersTable isLoading={isLoading} users={users} />;
 };
 
 export default Container;

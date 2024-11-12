@@ -11,9 +11,10 @@ import { useUsersTableColumns } from "./hooks/useUsersTableColumns";
 
 type UsersTableProps = {
   users: User[];
+  isLoading: boolean;
 };
 
-const UsersTable = ({ users }: UsersTableProps) => {
+const UsersTable = ({ users, isLoading }: UsersTableProps) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,7 +47,11 @@ const UsersTable = ({ users }: UsersTableProps) => {
           filterValues={filterValues}
         />
       </Table.Header>
-      <Table.Content table={table} columnDefs={columnDefs} />
+      <Table.Content
+        isLoading={isLoading}
+        table={table}
+        columnDefs={columnDefs}
+      />
     </Table>
   );
 };

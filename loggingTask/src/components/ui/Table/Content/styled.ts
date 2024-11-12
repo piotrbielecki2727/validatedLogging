@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import EmptyState from "../../EmptyState/EmptyState";
 import { LuLoader } from "react-icons/lu";
 
@@ -15,7 +15,6 @@ const StyledCell2 = styled.td`
 `;
 
 const StyledEmptyState = styled(EmptyState)`
-  height: auto;
   background-color: ${({ theme }) => theme.body};
   &:hover {
     background-color: ${({ theme }) => theme.body};
@@ -29,13 +28,24 @@ const StyledLoaderCell = styled.td`
 
 const StyledLoaderDiv = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
   justify-items: center;
   height: 16rem;
+  font-size: x-large;
+`;
+
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 `;
 
 const StyledLoader = styled(LuLoader)`
-  animation: spin 1s linear infinite;
+  animation: ${spin} 1s linear infinite;
   margin-right: 0.5rem;
 `;
 
@@ -44,6 +54,7 @@ const StyledTable = styled.table`
   min-width: 100%;
   overflow-x: auto;
   display: block;
+  min-height: 30rem;
 `;
 
 const StyledTableHeader = styled.thead`
@@ -83,7 +94,8 @@ const StyledCell = styled.td`
   color: ${({ theme }) => theme.text};
 `;
 
-const CellForEmptyState = styled(StyledCell)`
+const CellForLoaderAndEmptyState = styled(StyledCell)`
+  padding: 110px;
   &:hover {
     background-color: ${({ theme }) => theme.colors.background.secondary};
   }
@@ -102,5 +114,5 @@ export {
   StyledTableBodyRow,
   StyledTableHeader,
   StyledTableRow,
-  CellForEmptyState,
+  CellForLoaderAndEmptyState,
 };
