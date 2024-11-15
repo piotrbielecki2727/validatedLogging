@@ -15,7 +15,7 @@ export const lightTheme = {
     background: {
       primary: "#fff",
       secondary: "#fhfhfh",
-      secondaryHover: "#ffffff",
+      secondaryHover: "#f2f2f2",
     },
   },
   fonts: {
