@@ -1,19 +1,16 @@
 import { User } from "../../components/UsersTable/types";
 import { GET_USERS } from "./constants";
+import apiClient from "../../axios/axiosConfig";
 
-export const getUsers = async (): Promise<User[]> => {
+export const getUsers = async (
+  abortController: AbortController
+): Promise<User[]> => {
   try {
-    const response = await fetch(GET_USERS);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const userData: User[] = await response.json();
-    return userData;
+    const response = await apiClient.get(GET_USERS, {
+      signal: abortController.signal,
+    });
+    return response.data;
   } catch (error) {
-    if (error instanceof Error) {
-      throw new Error("An error occurred: " + error.message);
-    } else {
-      throw new Error("An unknown error occurred");
-    }
+    throw error;
   }
 };
