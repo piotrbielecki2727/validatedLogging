@@ -43,7 +43,7 @@ const OutlineButton = styled(Button)`
   color: ${({ theme }) => theme.text};
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background.secondary};
+    background-color: ${({ theme }) => theme.colors.background.secondaryHover};
   }
 `;
 

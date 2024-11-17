@@ -1,30 +1,53 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-type ThemeMode = 'light' | 'dark';
+type ThemeMode = "light" | "dark";
 
-interface ThemeState {
+const THEME_STORAGE_KEY = "theme-mode";
+
+type ThemeState = {
   mode: ThemeMode;
   isInitialized: boolean;
-}
+};
 
 const initialState: ThemeState = {
-  mode: 'light',
+  mode: "light",
   isInitialized: false,
 };
 
+const getStoredTheme = (): ThemeMode | null => {
+  if (typeof window === "undefined") return null;
+  return localStorage.getItem(THEME_STORAGE_KEY) as ThemeMode | null;
+};
+
+const setStoredTheme = (mode: ThemeMode) => {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(THEME_STORAGE_KEY, mode);
+};
+
 export const themeSlice = createSlice({
-  name: 'theme',
+  name: "theme",
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      state.mode = state.mode === 'light' ? 'dark' : 'light';
-      document.documentElement.classList.toggle('dark', state.mode === 'dark');
+      state.mode = state.mode === "light" ? "dark" : "light";
+      document.documentElement.classList.toggle("dark", state.mode === "dark");
+      setStoredTheme(state.mode);
     },
     initializeTheme: (state) => {
-      if (!state.isInitialized && typeof window !== 'undefined') {
-        state.mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (!state.isInitialized && typeof window !== "undefined") {
+        const storedTheme = getStoredTheme();
+        if (storedTheme) state.mode = storedTheme;
+        else {
+          state.mode = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+          setStoredTheme(state.mode);
+        }
         state.isInitialized = true;
-        document.documentElement.classList.toggle('dark', state.mode === 'dark');
+        document.documentElement.classList.toggle(
+          "dark",
+          state.mode === "dark"
+        );
       }
     },
   },
