@@ -1,13 +1,12 @@
-import { useEffect, useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import FilterSection from "./components/FilterSection";
-import { User } from "./types";
-import { FilterValues } from "./components/FilterSection/types";
-import useTable from "./hooks/useTable";
-import { filterUsers, setFilterValues } from "../../lib/store/usersSlice";
-import Table from "../ui/Table";
-import { selectFilteredData } from "../../lib/store/selectors";
-import { useUsersTableColumns } from "./hooks/useUsersTableColumns";
+import { useEffect, useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import FilterSection from './components/FilterSection';
+import useTable from './hooks/useTable';
+import { filterUsers, setFilterValues } from '../../lib/store/usersSlice';
+import Table from '../ui/Table';
+import { selectFilteredData } from '../../lib/store/selectors';
+import { useUsersTableColumns } from './hooks/useUsersTableColumns';
+import { FilterValues, User } from '../../types';
 
 type UsersTableProps = {
   users: User[];
@@ -18,7 +17,7 @@ const UsersTable = ({ users, isLoading }: UsersTableProps) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "users/setUsers", payload: users });
+    dispatch({ type: 'users/setUsers', payload: users });
   }, [users, dispatch]);
 
   const tableColumns = useUsersTableColumns();

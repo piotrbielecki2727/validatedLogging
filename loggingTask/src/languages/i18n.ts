@@ -1,11 +1,9 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import translationPL from "./assets/locales/pl/translation.json";
-import translationENG from "./assets/locales/eng/translation.json";
-
-const LANGUAGE_KEY = "language";
-
-export type AvailableLanguages = "eng" | "pl";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import translationPL from './locales/pl/translation.json';
+import translationENG from './locales/eng/translation.json';
+import { LANGUAGE_KEY } from './constants';
+import { AvailableLanguages } from '../types';
 
 const resources = {
   eng: {
@@ -25,11 +23,11 @@ const getSavedLanguage = (): AvailableLanguages => {
   if (savedLanguage && isValidLanguage(savedLanguage)) {
     return savedLanguage;
   }
-  const browserLanguage = navigator.language.split("-")[0];
-  if (browserLanguage === "pl") {
-    return "pl";
+  const browserLanguage = navigator.language.split('-')[0];
+  if (browserLanguage === 'pl') {
+    return 'pl';
   }
-  return "eng";
+  return 'eng';
 };
 
 export const useLanguage = () => {
@@ -48,12 +46,12 @@ export const useLanguage = () => {
 i18n.use(initReactI18next).init({
   resources,
   lng: getSavedLanguage(),
-  fallbackLng: "eng",
+  fallbackLng: 'eng',
   interpolation: {
     escapeValue: false,
   },
   detection: {
-    order: ["localStorage", "navigator"],
+    order: ['localStorage', 'navigator'],
   },
 });
 

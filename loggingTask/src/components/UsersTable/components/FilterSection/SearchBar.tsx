@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { TInputValue } from "./types";
+import styled from 'styled-components';
+import { TInputValue } from '../../../../types';
 
 type SearchBarProps = {
   columnToFilter?: string;
@@ -24,7 +24,7 @@ const StyledInput = styled.input`
 `;
 
 const SearchBar = ({
-  searchBarPlaceholder = "Name",
+  searchBarPlaceholder = 'Name',
   filterValue,
   setFilterValue,
 }: SearchBarProps) => {

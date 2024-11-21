@@ -29,5 +29,8 @@
     "phone": "Numer telefonu"
   },
   "logout": "Wyloguj",
-  "loading": "Ładowanie..."
+  "loading": "Ładowanie...",
+  "emptyResults": "Brak wyników...",
+  "expand_table": "Rozwiń tabelę",
+  "collapse_table": "Zwiń tabelę"
 }

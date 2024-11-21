@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const PageContainer = styled.div`
   background: ${({ theme }) => theme.colors.background.secondary};
@@ -10,6 +10,11 @@ const PageContainer = styled.div`
   -webkit-box-shadow: -2px 8px 28px -20px rgba(65, 65, 69, 1);
   -moz-box-shadow: -2px 8px 28px -20px rgba(65, 65, 69, 1);
   box-shadow: -2px 8px 28px -20px rgba(65, 65, 69, 1);
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const TitleContainer = styled.div`

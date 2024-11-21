@@ -1,8 +1,9 @@
-import { useState } from "react";
-import * as S from "./styled";
-import { MdLanguage } from "react-icons/md";
-import IconComponent from "../IconComponent/IconComponent";
-import { AvailableLanguages, useLanguage } from "../../../i18n";
+import { useState } from 'react';
+import * as S from './styled';
+import { MdLanguage } from 'react-icons/md';
+import IconComponent from '../IconComponent/IconComponent';
+import { useLanguage } from '../../../languages/i18n';
+import { AvailableLanguages } from '../../../types';
 const Dropdown = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { currentLanguage, changeLanguage } = useLanguage();
@@ -19,10 +20,10 @@ const Dropdown = () => {
         {currentLanguage.toUpperCase()}
       </S.DropdownButton>
       <S.DropdownContent $show={showDropdown}>
-        <S.DropdownItem onClick={() => handleChangeLanguage("pl")}>
+        <S.DropdownItem onClick={() => handleChangeLanguage('pl')}>
           PL
         </S.DropdownItem>
-        <S.DropdownItem onClick={() => handleChangeLanguage("eng")}>
+        <S.DropdownItem onClick={() => handleChangeLanguage('eng')}>
           ENG
         </S.DropdownItem>
       </S.DropdownContent>

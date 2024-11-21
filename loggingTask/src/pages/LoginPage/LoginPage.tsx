@@ -1,6 +1,7 @@
-import { useTranslation } from "react-i18next";
-import Login from "../../components/Login";
-import * as S from "./styled";
+import { useTranslation } from 'react-i18next';
+import Login from '../../components/Login';
+import * as S from './styled';
+import { TRANSLATIONS } from '../../languages/translationKeys';
 
 const LoginPage = () => {
   const { t } = useTranslation();
@@ -9,8 +10,8 @@ const LoginPage = () => {
     <S.PageContainer>
       <S.TitleContainer>
         <S.Title>
-          <S.LoginText>{t("logging")}</S.LoginText>
-          <S.Subtitle>{t("loggingSubtitle")}</S.Subtitle>
+          <S.LoginText>{t(TRANSLATIONS.LOGGING)}</S.LoginText>
+          <S.Subtitle>{t(TRANSLATIONS.LOGGING_SUBTITLE)}</S.Subtitle>
         </S.Title>
       </S.TitleContainer>
       <Login />

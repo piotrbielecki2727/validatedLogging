@@ -29,5 +29,8 @@
     "phone": "Filter by phone"
   },
   "logout": "Logout",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "emptyResults": "Empty results...",
+  "expand_table": "Expand table",
+  "collapse_table": "Collapse table"
 }

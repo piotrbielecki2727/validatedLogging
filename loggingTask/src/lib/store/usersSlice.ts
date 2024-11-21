@@ -1,6 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "../../components/UsersTable/types";
-import { FilterValues } from "../../components/UsersTable/components/FilterSection/types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FilterValues, User } from '../../types';
 
 interface UsersState {
   users: User[];
@@ -12,15 +11,15 @@ const initialState: UsersState = {
   users: [],
   filteredUsers: [],
   filterValues: {
-    name: "",
-    username: "",
-    email: "",
-    phone: "",
+    name: '',
+    username: '',
+    email: '',
+    phone: '',
   },
 };
 
 export const usersSlice = createSlice({
-  name: "users",
+  name: 'users',
   initialState,
   reducers: {
     setUsers: (state, action: PayloadAction<User[]>) => {
@@ -53,9 +52,15 @@ export const usersSlice = createSlice({
           )
         : users;
     },
+    resetState: () => initialState,
   },
 });
 
-export const { setUsers, setFilterValues, filterUsers, resetFilterValues } =
-  usersSlice.actions;
+export const {
+  setUsers,
+  setFilterValues,
+  filterUsers,
+  resetFilterValues,
+  resetState,
+} = usersSlice.actions;
 export default usersSlice.reducer;

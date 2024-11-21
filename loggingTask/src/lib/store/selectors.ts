@@ -1,13 +1,10 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { RootState } from "./store";
+import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from './store';
 
 export const selectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 
-export const selectTheme = createSelector(
-  (state: RootState) => state.theme.mode,
-  (state: RootState) => state.theme.isInitialized,
-  (mode, isInitialized) => ({ mode, isInitialized })
-);
+export const selectIsCollapsed = (state: RootState) =>
+  state.collapse.isCollapsed;
 
 export const selectFilteredData = createSelector(
   (state: RootState) => state.users.filteredUsers,

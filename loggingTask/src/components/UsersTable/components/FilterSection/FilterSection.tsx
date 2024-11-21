@@ -1,14 +1,15 @@
-import { FilterValues } from "./types";
-import { useDispatch } from "react-redux";
-import * as S from "./styled";
+import { useDispatch } from 'react-redux';
+import * as S from './styled';
 import {
   filterUsers,
   resetFilterValues,
-} from "../../../../lib/store/usersSlice";
-import { OutlineButton } from "../../../ui/Button/Button";
-import IconComponent from "../../../ui/IconComponent/IconComponent";
-import { TbTrash } from "react-icons/tb";
-import { useTranslation } from "react-i18next";
+} from '../../../../lib/store/usersSlice';
+import { OutlineButton } from '../../../ui/Button/Button';
+import IconComponent from '../../../ui/IconComponent/IconComponent';
+import { TbTrash } from 'react-icons/tb';
+import { useTranslation } from 'react-i18next';
+import { TRANSLATIONS } from '../../../../languages/translationKeys';
+import { FilterValues } from '../../../../types';
 
 type FilterSectionProps = {
   setFilterValues: (
@@ -30,17 +31,20 @@ const FilterSection = ({
   };
 
   const isFilterApplied = Object.values(filterValues).some((value) => value);
-
   return (
     <S.FilterSectionContainer>
       <S.Search>
-        <span>{t("search")}</span>
+        <span>{t(TRANSLATIONS.SEARCH)}</span>
       </S.Search>
       <S.GridDiv>
         {Object.entries(filterValues).map(([key, value]) => (
           <S.SearchBarContainer key={key}>
             <S.StyledSearchBar
-              searchBarPlaceholder={t(`filters.${key}`)}
+              searchBarPlaceholder={t(
+                TRANSLATIONS.FILTERS[
+                  key.toUpperCase() as keyof typeof TRANSLATIONS.FILTERS
+                ]
+              )}
               columnToFilter={key}
               filterValue={value}
               setFilterValue={(newValue) =>
@@ -56,12 +60,12 @@ const FilterSection = ({
         {isFilterApplied && (
           <S.ButtonDiv>
             <OutlineButton
-              width="100%"
+              width='100%'
               onClick={handleResetFilterValues}
-              color="theme"
+              color='theme'
             >
               <IconComponent icon={TbTrash} />
-              {t("resetAllFilters")}
+              {t(TRANSLATIONS.RESET_ALL_FILTERS)}
             </OutlineButton>
           </S.ButtonDiv>
         )}

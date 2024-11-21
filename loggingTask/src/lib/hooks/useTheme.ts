@@ -1,13 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "../store/themeSlice";
-import { AppDispatch } from "../store/store";
-import { selectTheme } from "../store/selectors";
+import { useContext } from 'react';
+import { ThemeContext, ThemeContextType } from '../../context/ThemeContext';
 
-export const useTheme = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const theme = useSelector(selectTheme);
-  return {
-    theme,
-    toggleTheme: () => dispatch(toggleTheme()),
-  };
+export const useTheme = (): ThemeContextType => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used inside provider');
+  }
+  return context;
 };

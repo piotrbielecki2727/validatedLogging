@@ -1,6 +1,6 @@
-import { User } from "../../components/UsersTable/types";
-import { GET_USERS } from "./constants";
-import apiClient from "../../axios/axiosConfig";
+import { GET_USERS } from './constants';
+import apiClient from '../../axios/axiosConfig';
+import { User } from '../../types';
 
 export const getUsers = async (
   abortController: AbortController

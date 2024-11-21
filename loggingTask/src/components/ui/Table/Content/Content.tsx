@@ -4,9 +4,10 @@ import {
   flexRender,
   Row,
   Table as TanStackTable,
-} from "@tanstack/react-table";
-import * as S from "./styled";
-import { t } from "i18next";
+} from '@tanstack/react-table';
+import * as S from './styled';
+import { t } from 'i18next';
+import { TRANSLATIONS } from '../../../../languages/translationKeys';
 
 type ContentProps<T> = {
   table: TanStackTable<T>;
@@ -28,7 +29,7 @@ const Content = <T,>({ table, columnDefs, isLoading }: ContentProps<T>) => {
   const emptyResults = () => (
     <S.StyledTableBodyRow>
       <S.CellForLoaderAndEmptyState colSpan={columnDefs.length}>
-        <S.StyledEmptyState title="Empty results..." />
+        <S.StyledEmptyState title={t(TRANSLATIONS.EMPTY_RESULTS)} />
       </S.CellForLoaderAndEmptyState>
     </S.StyledTableBodyRow>
   );
@@ -37,7 +38,7 @@ const Content = <T,>({ table, columnDefs, isLoading }: ContentProps<T>) => {
     <tr>
       <S.CellForLoaderAndEmptyState colSpan={columnDefs.length}>
         <S.StyledLoaderDiv>
-          <S.StyledLoader /> {t("loading")}
+          <S.StyledLoader /> {t(TRANSLATIONS.LOADING)}
         </S.StyledLoaderDiv>
       </S.CellForLoaderAndEmptyState>
     </tr>
