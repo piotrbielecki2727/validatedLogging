@@ -4,12 +4,15 @@ This project is a **User Management Dashboard** designed to facilitate the manag
 
 ## Table of Contents  
 
+- [Deploy](#deploy)
 - [Features](#features)  
 - [Technologies Used](#technologies-used)  
-- [Development Note](#development-note)  
 - [Preview](#preview)
-- [Deploy](#deploy)
 
+
+## Deploy  
+
+https://validated-logging.vercel.app/
 
 ## Features  
 
@@ -39,8 +42,6 @@ This project is a **User Management Dashboard** designed to facilitate the manag
 
 ![image](https://github.com/user-attachments/assets/c0c3ab37-1efa-4b1a-8c00-b558cfeca905)
 
-## Deploy  
 
-https://validated-logging.vercel.app/
 
 
